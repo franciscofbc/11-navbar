@@ -260,7 +260,7 @@ main {
   box-shadow: var(--shadow-2);
 }
 
-.menu {
+.menu-mobile {
   max-width: var(--max-width);
   width: var(--fluid-width);
   margin: 0 auto;
@@ -273,7 +273,7 @@ main {
   transition: var(--transition);
 }
 
-.menu div {
+.menu-mobile div {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -281,7 +281,7 @@ main {
   height: 72px;
 }
 
-button {
+.menu-mobile button {
   position: relative;
   height: 22px;
   width: 26px;
@@ -292,11 +292,11 @@ button {
   transition: var(--transition);
 }
 
-button:hover {
+.menu-mobile button:hover {
   transform: rotate(90deg);
 }
 
-button span {
+.menu-mobile button span {
   position: absolute;
   display: block;
   height: 4px;
@@ -305,26 +305,26 @@ button span {
   background: var(--primary-500);
 }
 
-button span:nth-child(1) {
+.menu-mobile button span:nth-child(1) {
   top: 0;
 }
 
-button span:nth-child(2) {
+.menu-mobile button span:nth-child(2) {
   top: 8px;
 }
 
-button span:nth-child(3) {
+.menu-mobile button span:nth-child(3) {
   top: 16px;
 }
 
-nav {
+.menu-mobile nav {
   position: absolute;
   top: 72px;
   left: 0;
   width: 100%;
 }
 
-nav ul li {
+.menu-mobile nav ul li {
   text-transform: capitalize;
   padding: 0.5rem 0;
   cursor: pointer;
@@ -332,7 +332,38 @@ nav ul li {
   letter-spacing: var(--letterSpacing);
 }
 
-nav ul li:hover {
-  background-color: var(--primary-100);
+.menu-mobile nav ul li:hover {
+  background: var(--primary-100);
   padding-left: 8px;
+}
+
+.menu-mobile nav ul li a {
+  display: block;
+}
+.menu-mobile nav ul li a:hover {
+  color: var(--primary-500);
+}
+
+.menu {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .menu-mobile {
+    display: none;
+  }
+  .menu {
+    max-width: var(--max-width);
+    width: var(--fluid-width);
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .menu nav ul {
+    display: flex;
+    column-gap: 8px;
+    text-transform: capitalize;
+  }
 }
