@@ -260,16 +260,16 @@ main {
   box-shadow: var(--shadow-2);
 }
 
-.menu-mobile {
+.menu {
   max-width: var(--max-width);
   width: var(--fluid-width);
   margin: 0 auto;
+}
 
+.menu-mobile {
   display: flex;
   justify-content: space-between;
-
   position: relative;
-
   transition: var(--transition);
 }
 
@@ -285,7 +285,6 @@ main {
   position: relative;
   height: 22px;
   width: 26px;
-
   cursor: pointer;
   border: transparent;
   background: transparent;
@@ -325,8 +324,11 @@ main {
 }
 
 .menu-mobile nav ul li {
-  text-transform: capitalize;
   padding: 0.5rem 0;
+}
+
+nav ul li {
+  text-transform: capitalize;
   cursor: pointer;
   transition: var(--transition);
   letter-spacing: var(--letterSpacing);
@@ -337,14 +339,17 @@ main {
   padding-left: 8px;
 }
 
-.menu-mobile nav ul li a {
+nav ul li a {
   display: block;
+  transition: var(--transition);
+  color: var(--grey-900);
 }
-.menu-mobile nav ul li a:hover {
+
+nav ul li a:hover {
   color: var(--primary-500);
 }
 
-.menu {
+.menu-desktop {
   display: none;
 }
 
@@ -352,19 +357,20 @@ main {
   .menu-mobile {
     display: none;
   }
-  .menu {
-    max-width: var(--max-width);
-    width: var(--fluid-width);
-    margin: 0 auto;
+  .menu-desktop {
     height: 72px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-  .menu nav ul {
+  .menu-desktop nav ul {
     display: flex;
     column-gap: 8px;
-    text-transform: capitalize;
+  }
+  .nav-social ul li a {
+    color: var(--primary-500);
+  }
+  .nav-social ul li a:hover {
+    color: var(--primary-300);
   }
 }

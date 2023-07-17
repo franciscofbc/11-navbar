@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { links } from '../data';
+import { links, social } from '../data';
 import logo from '../logo.svg';
 
 const Navbar = () => {
@@ -12,10 +12,24 @@ const Navbar = () => {
       setHeight(refNav.current.getBoundingClientRect().bottom);
   }, [showLinks]);
 
+  const navbar = () => {
+    return (
+      <nav ref={refNav}>
+        <ul>
+          {links.map(({ id, text, url }) => (
+            <li key={id}>
+              <a href={url}>{text}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    );
+  };
+
   return (
     <>
       <section
-        className="menu-mobile"
+        className="menu-mobile menu"
         style={{
           height: showLinks ? `${height}px` : '72px',
         }}
@@ -31,25 +45,18 @@ const Navbar = () => {
             <span></span> <span></span> <span></span>
           </button>
         </div>
-        {showLinks && (
-          <nav ref={refNav}>
-            <ul>
-              {links.map(({ id, text, url }) => (
-                <li key={id}>
-                  <a href={url}>{text}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        )}
+        {showLinks && navbar()}
       </section>
-      <section className="menu">
+      <section className="menu-desktop menu">
         <img src={logo} alt="logo" />
-        <nav ref={refNav}>
+        {navbar()}
+        <nav className="nav-social">
           <ul>
-            {links.map(({ id, text, url }) => (
+            {social.map(({ id, url, icon }) => (
               <li key={id}>
-                <a href={url}>{text}</a>
+                <a href={url} target="_blank" rel="noopener noreferrer">
+                  {icon}
+                </a>
               </li>
             ))}
           </ul>
